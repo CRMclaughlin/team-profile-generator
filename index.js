@@ -16,6 +16,30 @@ const templateHTML = require('./public/index.html');
 const teamMembers = [];
 
 
+//function to add team members
+
+function addTeamMember() {
+    inquirer.createPromptModule([
+        {
+            type: 'list',
+            name: 'teamList',
+            message: 'Add an engineer, Add an intern or finish assembling your team?',
+            choices: ['Engineer', 'Intern', 'Assemble Team!'],
+
+        },
+    ])
+    .then((val) => {
+        if (val.teamList === 'Engineer') {
+            addEngineer()
+        } else if (val.teamList === 'Intern') {
+            addIntern()
+        }else {
+            assembleTeam()
+        }
+    })
+}
+
+
 // Get manager data inputs to start application
 
 function addManager() {
