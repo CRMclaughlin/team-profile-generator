@@ -1,16 +1,20 @@
 // import npm packages
 
-const inquirer = require('inquirer');
-const path = require('path');
-const fs = require('fs');
+import inquirer from 'inquirer';
+import fs from 'fs';
 
 // Class import
-const Manager = require('./lib/Manager');
-const Engineer = require('./lib/Engineer');
-const Intern = require('./lib/Intern');
+import manager from './lib/Manager';
+import engineer from './lib/Engineer';
+import intern from './lib/Engineer';
+
+// Output path
+const DIST_DIR = path.resolve(__dirname, 'dist')
+
+
 
 // Import HTML template
-const templateHTML = require('./public/index.html');
+// const templateHTML = require('./public/index.html');
 
 // Empty array for team members
 const teamMembers = [];
@@ -28,10 +32,10 @@ function addTeamMember() {
 
         },
     ])
-    .then((val) => {
-        if (val.teamList === 'Engineer') {
+    .then((data) => {
+        if (data.teamList === 'Engineer') {
             addEngineer()
-        } else if (val.teamList === 'Intern') {
+        } else if (data.teamList === 'Intern') {
             addIntern()
         }else {
             assembleTeam()
@@ -118,29 +122,49 @@ function addIntern() {
         {
             type: 'input',
             name: 'name',
-            message: 'What is the engineers name?',
+            message: `What is the interns name?`,
         },
         {
             type: 'input',
             name: 'id',
-            message: `What is the engineer's employee ID?`,
+            message: `What is the interns employee ID?`,
         },
         {
             type: 'input',
             name: 'email',
-            message: `What is the engineers's email address`,
+            message: `What is the interns email address?`,
         },
         {
             type: 'input',
-            name: 'github',
-            message: `What is the engineer's Github profile name?`,
+            name: 'school',
+            message: `What school does(did) the intern attend?`,
         },
     ])
     .then((data) => {
-        const intern = new Intern(data.name, data.id, data.email, data.github)
+        const intern = new Intern(data.name, data.id, data.email, data.school)
+        console.table(intern)
+        teamMembers.push(intern)
     })
 }
 
+//Fucntion to create team file
+
+function createTeamFile() {
+    if (!fs.existsSync(DIST_DIR)) {
+        fs.mkdirSync(DIST_DIR);
+    } else {
+        fs.writeFileSync(outputPath, templateHTML(teamMembers), 'utf-8');
+        console.log('HTML file created in the dist folder');
+    }
+}
+
+//start app
+
+function startApp(){
+    addManager()
+}
+
+startApp()
 
 
 
