@@ -4,12 +4,12 @@ import inquirer from 'inquirer';
 import fs from 'fs';
 
 // Class import
-import Manager from './lib/Manager';
-import Engineer from './lib/Engineer';
-import Intern from './lib/Engineer';
+// import Manager from '../lib/Manager';
+// import Engineer from '../lib/Engineer';
+// import Intern from '../lib/Intern';
 
 // Output path
-const DIST_DIR = path.resolve(__dirname, 'dist')
+
 
 
 
@@ -23,7 +23,7 @@ const teamMembers = [];
 //function to add team members
 
 function addTeamMember() {
-    inquirer.createPromptModule([
+    inquirer.prompt([
         {
             type: 'list',
             name: 'teamList',
@@ -32,15 +32,15 @@ function addTeamMember() {
 
         },
     ])
-    .then((data) => {
-        if (data.teamList === 'Engineer') {
-            addEngineer()
-        } else if (data.teamList === 'Intern') {
-            addIntern()
-        }else {
-            assembleTeam()
-        }
-    })
+        .then((data) => {
+            if (data.teamList === 'Engineer') {
+                addEngineer()
+            } else if (data.teamList === 'Intern') {
+                addIntern()
+            } else {
+                assembleTeam()
+            }
+        })
 }
 
 
@@ -73,94 +73,96 @@ function addManager() {
             name: 'officeNumber',
             message: 'What is the office number of the team manager?',
         },
+        function writeToFile(data) {
+            const generateReadme = "README.md";
+
+            fs.writeFile('./reads/README.md', data, function (err) {
+                err ? console.log(err) : console.log(generateReadme + " created!")
+            });
+        }
     ])
-    .then((data) => {
-        const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-        console.table(manager);
-        teamMembers.push(manager);
-        addTeamMember();
-    })
+        .then((data) => {
+            const manager = new manager(data.name, data.id, data.email, data.officeNumber)
+            console.table(manager);
+            teamMembers.push(manager);
+            addTeamMember();
+        })
 }
 
 // get engineer data inputs
 
-function addEngineer() {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: 'What is the engineers name?',
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: `What is the engineer's employee ID?`,
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: `What is the engineers's email address`,
-        },
-        {
-            type: 'input',
-            name: 'github',
-            message: `What is the engineer's Github profile name?`,
-        },
-    ])
-    .then((data) => {
-        const engineer = new Engineer(data.name, data.id, data.email, data.github)
-        console.table(engineer);
-        teamMembers.push(engineer);
-        addTeamMember();
-    })
-}
+// function addEngineer() {
+//     inquirer.prompt([
+//         {
+//             type: 'input',
+//             name: 'name',
+//             message: 'What is the engineers name?',
+//         },
+//         {
+//             type: 'input',
+//             name: 'id',
+//             message: `What is the engineer's employee ID?`,
+//         },
+//         {
+//             type: 'input',
+//             name: 'email',
+//             message: `What is the engineers's email address`,
+//         },
+//         {
+//             type: 'input',
+//             name: 'github',
+//             message: `What is the engineer's Github profile name?`,
+//         },
+//     ])
+//     .then((data) => {
+//         const engineer = new Engineer(data.name, data.id, data.email, data.github)
+//         console.table(engineer);
+//         teamMembers.push(engineer);
+//         addTeamMember();
+//     })
+// }
 
 // get Intern data inputs
 
-function addIntern() {
-    inquirer.prompt([
-        {
-            type: 'input',
-            name: 'name',
-            message: `What is the interns name?`,
-        },
-        {
-            type: 'input',
-            name: 'id',
-            message: `What is the interns employee ID?`,
-        },
-        {
-            type: 'input',
-            name: 'email',
-            message: `What is the interns email address?`,
-        },
-        {
-            type: 'input',
-            name: 'school',
-            message: `What school does(did) the intern attend?`,
-        },
-    ])
-    .then((data) => {
-        const intern = new Intern(data.name, data.id, data.email, data.school)
-        console.table(intern)
-        teamMembers.push(intern)
-    })
-}
+// function addIntern() {
+//     inquirer.prompt([
+//         {
+//             type: 'input',
+//             name: 'name',
+//             message: `What is the interns name?`,
+//         },
+//         {
+//             type: 'input',
+//             name: 'id',
+//             message: `What is the interns employee ID?`,
+//         },
+//         {
+//             type: 'input',
+//             name: 'email',
+//             message: `What is the interns email address?`,
+//         },
+//         {
+//             type: 'input',
+//             name: 'school',
+//             message: `What school does(did) the intern attend?`,
+//         },
+//     ])
+//     .then((data) => {
+//         const intern = new Intern(data.name, data.id, data.email, data.school)
+//         console.table(intern)
+//         teamMembers.push(intern)
+//     })
+// }
+
+
 
 //Fucntion to create team file
 
-function createTeamFile() {
-    if (!fs.existsSync(DIST_DIR)) {
-        fs.mkdirSync(DIST_DIR);
-    } else {
-        fs.writeFileSync(outputPath, templateHTML(teamMembers), 'utf-8');
-        console.log('HTML file created in the dist folder');
-    }
-}
+
 
 //start app
 
-function startApp(){
+function startApp() {
     addManager()
 }
 
