@@ -4,9 +4,9 @@ import inquirer from 'inquirer';
 import fs from 'fs';
 
 // Class import
-import manager from './lib/Manager';
-import engineer from './lib/Engineer';
-import intern from './lib/Engineer';
+import Manager from './lib/Manager';
+import Engineer from './lib/Engineer';
+import Intern from './lib/Engineer';
 
 // Output path
 const DIST_DIR = path.resolve(__dirname, 'dist')
