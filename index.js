@@ -40,7 +40,7 @@ function addTeamMember() {
 }
 
 
-// Get manager data inputs to start application
+// Get manager data inputs
 
 function addManager() {
     inquirer.createPromptModule([
@@ -70,14 +70,46 @@ function addManager() {
             message: 'What is the office number of the team manager?',
         },
     ])
-    .then((val) => {
-        const manager = new Manager(val.name, val.id, val.email, val.officeNumber)
+    .then((data) => {
+        const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
         console.table(manager);
         teamMembers.push(manager);
         addTeamMember();
     })
 }
 
+// get engineer data inputs
+
+function addEngineer() {
+    inquirer.createPromptModule([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'What is the engineers name?',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: `What is the engineer's employee ID?`,
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: `What is the engineers's email address`,
+        },
+        {
+            type: 'input',
+            name: 'gitHub',
+            message: `What is the engineer's Github profile name?`,
+        },
+    ])
+    .then((data) => {
+        const engineer = new Engineer(data.name, data.id, data.email, data.officeNumber)
+        console.table(engineer);
+        teamMembers.push(engineer);
+        addTeamMember();
+    })
+}
 
 
 
