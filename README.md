@@ -8,7 +8,7 @@
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
-  * [TODO](#to-do)
+  * [To-Do](#to-do)
   * [Questions](#questions)
 
   ## Description
