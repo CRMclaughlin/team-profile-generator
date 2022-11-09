@@ -7,7 +7,7 @@ const createTeam = (team) => {
         <div class="card col-3 me-3 mb-5 employee-card">
         <div class="card-header employee-header">
             <h2 class="card-title">${manager.name}</h2>
-            <h3 class="card-title"><i class="fa-solid fa-people-roof"></i> ${manager.getRole()}</h3>
+            <h3 class="card-title"><i class="fa-solid fa fa-coffee"></i> ${manager.getRole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -26,7 +26,7 @@ const createTeam = (team) => {
         <div class="card col-3 me-3 mb-5 employee-card">
         <div class="card-header employee-header">
             <h2 class="card-title">${engineer.name}</h2>
-            <h3 class="card-title"><i class="fa-solid fa-wrench"></i> ${engineer.getRole()}</h3>
+            <h3 class="card-title"><i class="fa fa-wrench"></i> ${engineer.getRole()}</h3>
         </div>
         <div class="card-body">
             <ul class="list-group">
@@ -49,7 +49,7 @@ const createTeam = (team) => {
     <div class="card col-3 me-3 mb-5 employee-card">
         <div class="card-header employee-header">
             <h2 class="card-title">${intern.name}</h2>
-            <h3 class="card-title"><i class="fa-solid fa-wrench"></i> ${intern.getRole()}</h3>
+            <h3 class="card-title"><i class="fa fa-graduation-cap"></i> ${intern.getRole()}</h3>
     </div>
         <div class="card-body">
             <ul class="list-group">
@@ -103,8 +103,8 @@ const generateHTMl = (team) => `
     <title>Team Profiles</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./public/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -126,6 +126,7 @@ const generateHTMl = (team) => `
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
         crossorigin="anonymous"></script>
+        
 </html>
 `
 
