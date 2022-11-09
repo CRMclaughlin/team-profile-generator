@@ -20,7 +20,7 @@ const outputPath = path.join(DIST_DIR, 'teamMembers.html')
 
 
 // Import HTML template
-import templateHTML from './public/index.html';
+import templateHTML from './src/generateHTML.js';
 
 // Empty array for team members
 const teamMembers = [];
@@ -90,16 +90,10 @@ function createTeamFile() {
         fs.mkdirSync(DIST_DIR);
     } else {
         fs.writeFileSync(outputPath, templateHTML(teamMembers), 'utf-8');
-        console.log('HTML file created in the dist folder');
+        console.log('HTML file created in the dist folder!');
     }
 }
-function writeToFile(data) {
-    const generateHTML = "README.md";
 
-    fs.writeFile('./reads/README.md', data, function (err) {
-        err ? console.log(err) : console.log(generateHTML + " created!")
-    });
-}
 // get engineer data inputs
 
 function addEngineer() {
@@ -167,7 +161,7 @@ function addIntern() {
 
 
 
-//Fucntion to create team file
+
 
 
 
