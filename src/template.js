@@ -1,4 +1,4 @@
-const createTeam = teamData => {
+const createTeam = (teamData) => {
 
     const createManager = manager => {
         return `
