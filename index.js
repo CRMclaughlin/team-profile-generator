@@ -75,13 +75,13 @@ function addManager() {
             message: 'What is the office number of the team manager?',
         },
     ])
-    .then((data) => {
-        const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-        console.table(manager);
-        teamMembers.push(manager);
-        addTeamMember();
-        createTeamFile();
-    })
+        .then((data) => {
+            const manager = new Manager(data.name, data.id, data.email, data.officeNumber)
+            console.table(manager);
+            teamMembers.push(manager);
+            addTeamMember();
+            createTeamFile();
+        })
 }
 
 
@@ -119,12 +119,12 @@ function addEngineer() {
             message: `What is the engineer's Github profile name?`,
         },
     ])
-    .then((data) => {
-        const engineer = new Engineer(data.name, data.id, data.email, data.github)
-        console.table(engineer);
-        teamMembers.push(engineer);
-        addTeamMember();
-    })
+        .then((data) => {
+            const engineer = new Engineer(data.name, data.id, data.email, data.github)
+            console.table(engineer);
+            teamMembers.push(engineer);
+            addTeamMember();
+        })
 }
 
 // get Intern data inputs
@@ -152,11 +152,11 @@ function addIntern() {
             message: `What school does(did) the intern attend?`,
         },
     ])
-    .then((data) => {
-        const intern = new Intern(data.name, data.id, data.email, data.school)
-        console.table(intern)
-        teamMembers.push(intern)
-    })
+        .then((data) => {
+            const intern = new Intern(data.name, data.id, data.email, data.school)
+            console.table(intern)
+            teamMembers.push(intern)
+        })
 }
 
 
