@@ -8,6 +8,7 @@
   * [License](#license)
   * [Contributing](#contributing)
   * [Tests](#tests)
+  * [TODO](#to-do)
   * [Questions](#questions)
 
   ## Description
@@ -46,7 +47,7 @@ https://drive.google.com/file/d/1PJHlpi5PQYqd131KqgG7KOcM18HD0GCK/preview
   ## Tests
   N/A
 
-  ## To-Do's
+  ## To-Do
 
   - add tests to check data inputs 
   - a few more additions to css to make page look nicer
