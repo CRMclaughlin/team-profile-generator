@@ -2,17 +2,15 @@
 
 import inquirer from 'inquirer';
 import fs from 'fs';
-
-// Class import
-import Manager from './lib/Manager.js';
-// import Engineer from '../lib/Engineer';
-// import Intern from '../lib/Intern';
-
-// Output path
-
 import path from 'path'
 import url from 'url';
 
+// Class import
+import Manager from './lib/Manager.js';
+import Engineer from './lib/Engineer.js';
+import Intern from './lib/Intern.js';
+
+// Output path
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, 'dist')
@@ -34,7 +32,7 @@ function addTeamMember() {
             type: 'list',
             name: 'teamList',
             message: 'Add an engineer, Add an intern or finish assembling your team?',
-            choices: ['Engineer', 'Intern', 'Assemble Team!'],
+            choices: ['Engineer', 'Intern', 'Create Team!'],
 
         },
     ])
@@ -56,7 +54,7 @@ function addManager() {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'managerName',
+            name: 'name',
             message: 'What is the name of the team manager?',
         },
         {
@@ -80,12 +78,12 @@ function addManager() {
             console.table(manager);
             teamMembers.push(manager);
             addTeamMember();
-            createTeamFile();
+            assembleTeam();
         })
 }
 
 
-function createTeamFile() {
+function assembleTeam() {
     if (!fs.existsSync(DIST_DIR)) {
         fs.mkdirSync(DIST_DIR);
     } else {
@@ -153,10 +151,11 @@ function addIntern() {
         },
     ])
         .then((data) => {
-            const intern = new Intern(data.name, data.id, data.email, data.school)
-            console.table(intern)
-            teamMembers.push(intern)
-        })
+            const intern = new Intern(data.name, data.id, data.email, data.school);
+            console.table(intern);
+            teamMembers.push(intern);
+            addTeamMember()
+        });
 }
 
 
