@@ -158,12 +158,6 @@ function addIntern() {
         });
 }
 
-
-
-
-
-
-
 //start app
 
 function startApp() {
@@ -171,14 +165,3 @@ function startApp() {
 }
 
 startApp()
-
-
-
-
-
-
-// start of the application prompt for team managers name, employee id, email, and office number
-// then menu with option ot add engineer, intern, or to finish building my team
-// then engineer's name, id, email, and githu usersname, and taken back to menu
-// then prompted to enter the interns name, id, email, and school, takend back to menut
-// when I decide to finish building my team, then I exit the application, an html is generated
