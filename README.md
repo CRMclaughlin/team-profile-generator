@@ -45,7 +45,8 @@ https://drive.google.com/file/d/1PJHlpi5PQYqd131KqgG7KOcM18HD0GCK/preview
   N/A
   
   ## Tests
-  N/A
+  
+  * `npm run test`
 
 
 <img width="1512" alt="Screen Shot 2022-11-09 at 5 15 08 PM" src="https://user-images.githubusercontent.com/111208223/200964030-8097c4b9-c179-4b3a-b1f2-6238157b7d8e.png">
