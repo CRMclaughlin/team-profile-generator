@@ -34,8 +34,12 @@
 ## Video
 
 Watch to see how it works 😃
+
+* HTML Generator [Here](https://drive.google.com/file/d/1JVYHNRpHAFKTWcitt_cr9zcworZT9fTD/preview)
+
+* Test Suite [Here](https://drive.google.com/file/d/1gO8EmOsHU1LiUHzf87uaFENnWIWlTeNm/preview)
     
-https://drive.google.com/file/d/1PJHlpi5PQYqd131KqgG7KOcM18HD0GCK/preview
+
   
   ## License
     N/A
