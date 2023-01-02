@@ -130,4 +130,4 @@ const generateHTMl = (team) => `
 </html>
 `
 
-export default generateHTMl
+module.exports = generateHTMl

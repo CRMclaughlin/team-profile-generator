@@ -1,24 +1,23 @@
 // import npm packages
-
-import inquirer from 'inquirer';
-import fs from 'fs';
-import path from 'path'
-import url from 'url';
+const inquirer = require('inquirer');
+const fs = require('fs');
+const path = require('path');
+// const url = require('url');
 
 // Class import
-import Manager from './lib/Manager.js';
-import Engineer from './lib/Engineer.js';
-import Intern from './lib/Intern.js';
+const Manager = require('./lib/Manager.js');
+const Engineer = require('./lib/Engineer.js');
+const Intern = require('./lib/Intern.js');
 
 // Output path
-const __filename = url.fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// const __filename = url.fileURLToPath(import.meta.url);
+// const __dirname = path.dirname(__filename);
 const DIST_DIR = path.resolve(__dirname, 'dist')
 const outputPath = path.join(DIST_DIR, 'teamMembers.html')
 
 
 // Import HTML template
-import templateHTML from './src/generateHTML.js';
+const templateHTML = require('./src/generateHTML.js');
 
 // Empty array for team members
 const teamMembers = [];
